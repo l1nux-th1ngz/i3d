@@ -10,12 +10,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sudo bash -s -- -y -
 echo 'source "$HOME/.cargo/env"' >> ~/.bashrc
 source "$HOME/.bashrc"
 
-# Change permissions
-if [ -f "4.sh" ]; then
-    chmod +x 4.sh
-    sudo ./4.sh
-fi
-
+sudo apt-get update
 # Inform user about installation completion
 echo "################################################################"
 echo "###################    Installation Done  ######################"
