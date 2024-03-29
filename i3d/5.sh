@@ -45,6 +45,9 @@ thefuck lsd bash-completion dconf-editor clipit pulseaudio-utils \
 alsa-tools clipit gcc locate playerctl brightnessctl plocate viewnior \
 zathura cava xdot xdotool rxvt-unicode spotify-client mpd mpc mpv \
 
+# U
+sudo apt-get-upate
+
 # Enable services
 sudo systemctl enable avahi-daemon
 sudo systemctl enable acpid
@@ -57,19 +60,6 @@ else
     echo "Error: USER variable is not set."
 fi
 
-# Change permissions and execute 6.sh if it exists
-if [ -f "6.sh" ]; then
-    # Check if the script is not executable
-    if ! [ -x "6.sh" ]; then
-        # Change permissions to make the script executable
-        chmod +x 6.sh
-    fi
-    
-    # Execute the script
-    sudo ./6.sh
-else
-    echo "Script '6.sh' not found. Skipping execution."
-fi
 
 # Inform the user about installation completion
 echo "################################################################"
