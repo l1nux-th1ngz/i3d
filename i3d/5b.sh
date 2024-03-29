@@ -10,19 +10,19 @@ cat > ~/.config/i3/bin/logout << 'EOL'
 option=$(echo -e "suspend\nlock screen\nlogout\nreboot\npoweroff\nKill user $USER" | rofi -width 600 -dmenu -p system)
 case $option in
     suspend)
-        sudo systemctl suspend
+        systemctl suspend
         ;;
     'lock screen')
-        i3lock -i ~/Pictures/linuxtux.png
+        i3lock -i $HOME/Wallpapers/1.png
         ;;
     logout)
         i3-nagbar -t warning -m 'Are you sure you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'
         ;;
     reboot)
-        sudo systemctl reboot
+        systemctl reboot
         ;;
     poweroff)
-        sudo systemctl poweroff
+        systemctl poweroff
         ;;
     'Kill user $USER')
         loginctl kill-user $USER
@@ -37,30 +37,12 @@ EOL
 chmod +x ~/.config/i3/bin/logout
 
 # Move folders
-# Move sxhkd folder to ~/.config
-if [ -d "$HOME/sxhkd" ]; then
-    mv "$HOME/sxhkd" "$HOME/.config/"
-fi
-
-# Move autostart to ~/.config/i3/
-if [ -f "$HOME/autostart" ]; then
-    mv "$HOME/autostart" "$HOME/.config/i3/"
-fi
-
-# Move config to ~/.config/i3/
-if [ -f "$HOME/config" ]; then
-    mv "$HOME/config" "$HOME/.config/i3/"
-fi
-
-# Move workspaces to ~/.config/i3/
-if [ -f "$HOME/workspaces" ]; then
-    mv "$HOME/workspaces" "$HOME/.config/i3/"
-fi
-
-# Move Wallpapers to $HOME
-if [ -d "$HOME/Wallpapers" ]; then
-    mv "$HOME/Wallpapers" "$HOME/"
-fi
+mv "$HOME/sxhkd" "$HOME/.config/"
+mv "$HOME/autostart" "$HOME/.config/i3/"
+rm -rf "$HOME/.config/i3/config"
+mv "$HOME/config" "$HOME/.config/i3/"
+mv "$HOME/workspaces" "$HOME/.config/i3/"
+mv "$HOME/Wallpapers" "$HOME/"
 
 # Inform user about script execution completion
 echo "################################################################"
