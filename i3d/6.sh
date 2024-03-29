@@ -8,13 +8,7 @@ install_lightdm() {
     # Enable LightDM
     sudo systemctl enable lightdm
 
-    # Configure LightDM
-    sudo nano /etc/lightdm/lightdm.conf.d/01_my.conf << EOF
-[Seat:*]
-greeter-hide-users=false
-EOF
-
-    # Inform user about installation completion
+      # Inform user about installation completion
     echo "################################################################"
     echo "###################    Installation Done  ######################"
     echo "################################################################"
