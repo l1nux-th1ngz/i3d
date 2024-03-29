@@ -25,12 +25,7 @@ Pin-Priority: 1000
 # Update package lists and install Firefox
 sudo apt-get update && sudo apt-get install -y firefox
 
-# Change permissions
-if [ -f "3.sh" ]; then
-    chmod +x 3.sh
-    sudo ./3.sh
-fi
-
+sudo apt-get update
 # Inform user about installation completion
 echo "################################################################"
 echo "###################    Installation Done  ######################"
